@@ -1,11 +1,11 @@
 {
-    "name": "flutter_application_1",
-    "short_name": "flutter_application_1",
+    "name": "Aula | Gestión de alumnos",
+    "short_name": "Aula",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#F7F8FC",
+    "theme_color": "#5942CE",
+    "description": "Práctica Flutter AMM S8: gestión académica de alumnos.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
