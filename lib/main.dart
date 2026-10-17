@@ -17,8 +17,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // Una sola instancia comparte las listas y mapas entre las rutas.
-  // Los datos viven en memoria: al reiniciar la app vuelven a los iniciales.
+  // Una sola instancia comparte las listas y mapas entre las rutas
+  // Los datos viven en memoria: al reiniciar la app vuelven a los iniciales
   final datos = DatosAcademicos();
 
   @override
@@ -27,6 +27,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Aula | Gestión de alumnos',
       debugShowCheckedModeBanner: false,
+                                      // Define el tema global para mantener los mismos estilos en toda la app
+
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: primary),
@@ -60,8 +62,10 @@ class _MyAppState extends State<MyApp> {
             side: BorderSide(color: Color(0xFFE5E7EF)),
           ),
         ),
-      ),
+      ), 
       initialRoute: '/',
+                          // Asocia cada nombre de ruta con la pantalla que se abrirá al navegar
+
       routes: {
         '/': (_) => const LoginPage(),
         '/menu': (_) => MenuPage(datos: datos),

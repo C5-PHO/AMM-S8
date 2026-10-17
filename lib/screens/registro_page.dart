@@ -15,6 +15,7 @@ class RegistroPage extends StatefulWidget {
 
 class _RegistroPageState extends State<RegistroPage> {
   final _form = GlobalKey<FormState>();
+        // texteditingcontroller permiten leer y precargar los campos de nombre, apellido y nota.
   late final TextEditingController _nombre;
   late final TextEditingController _apellido;
   late final TextEditingController _nota;
@@ -37,6 +38,7 @@ class _RegistroPageState extends State<RegistroPage> {
   }
 
   void _guardar() {
+          // _form.currentState!.validate() si algún campo es inválido, muestra los errores y detiene el guardado
     if (!_form.currentState!.validate()) return;
     final alumno = <String, dynamic>{
       'nombre': _nombre.text.trim(),
@@ -91,7 +93,7 @@ class _RegistroPageState extends State<RegistroPage> {
                 validator: (value) {
                   final nota = double.tryParse((value ?? '').trim().replaceAll(',', '.'));
                   return nota == null || !nota.isFinite || nota < 0 || nota > 20 ? 'Ingresa una nota entre 0 y 20' : null;
-                },
+                },// Validator comprueba que la nota sea un número entre 0 y 20 antes de guardarla
               ),
               const SizedBox(height: 24),
               FilledButton.icon(onPressed: _guardar, icon: const Icon(Icons.save_outlined), label: const Text('Guardar')),

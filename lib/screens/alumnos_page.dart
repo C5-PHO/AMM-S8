@@ -43,7 +43,7 @@ class _AlumnosPageState extends State<AlumnosPage> {
 
   @override
   Widget build(BuildContext context) {
-    // where filtra sin alterar la lista original; toList crea la lista visible.
+    // where filtra los alumnos según la búsqueda sin modificar la lista original
     final visibles = widget.datos.alumnos.where((alumno) => '${alumno['nombre']} ${alumno['apellido']}'.toLowerCase().contains(_busqueda.toLowerCase().trim())).toList();
     return Scaffold(
       appBar: AppBar(
@@ -66,6 +66,7 @@ class _AlumnosPageState extends State<AlumnosPage> {
           Expanded(
             child: visibles.isEmpty
               ? Center(child: Text(widget.datos.alumnos.isEmpty ? 'Aún no hay alumnos registrados' : 'No se encontraron alumnos'))
+                      // Construye una fila por alumno de la lista filtrada
               : ListView.builder(
                   padding: const EdgeInsets.all(20),
                   itemCount: visibles.length,
