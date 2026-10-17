@@ -8,7 +8,7 @@ class DatosAcademicos {
   ];
 
   final Map<String, String> perfil = {
-    'nombre': 'María González',
+    'nombre': 'Piero Tec',
     'email': 'maria.gonzalez@correo.com',
     'telefono': '912345678',
     'rol': 'Docente',

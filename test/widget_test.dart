@@ -26,7 +26,7 @@ void main() {
     await tester.enterText(find.byKey(const Key('login-password')), 'demo123');
     await tester.tap(find.text('Ingresar'));
     await tester.pumpAndSettle();
-    expect(find.text('Hola, María'), findsOneWidget);
+    expect(find.text('Hola, Piero'), findsOneWidget);
     await tester.tap(find.text('Cerrar sesión'));
     await tester.pumpAndSettle();
     expect(find.text('Iniciar sesión'), findsOneWidget);
