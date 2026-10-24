@@ -6,6 +6,7 @@ import 'screens/login_page.dart';
 import 'screens/menu_page.dart';
 import 'screens/perfil_page.dart';
 import 'screens/registro_page.dart';
+import 'screens/recursos_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -72,6 +73,7 @@ class _MyAppState extends State<MyApp> {
         '/alumnos': (_) => AlumnosPage(datos: datos),
         '/registro': (_) => RegistroPage(datos: datos),
         '/perfil': (_) => PerfilPage(datos: datos),
+        '/recursos': (_) => const RecursosPage(),
       },
     );
   }

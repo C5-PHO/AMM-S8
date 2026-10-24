@@ -24,6 +24,7 @@ class _MenuPageState extends State<MenuPage> {
       {'titulo': 'Registrar alumno', 'icono': Icons.person_add_outlined, 'ruta': '/registro'},
       {'titulo': 'Listar alumnos', 'icono': Icons.format_list_bulleted, 'ruta': '/alumnos'},
       {'titulo': 'Perfil', 'icono': Icons.person_outline, 'ruta': '/perfil'},
+      {'titulo': 'Fuentes e imágenes', 'icono': Icons.photo_library_outlined, 'ruta': '/recursos'},
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('Menú')),
