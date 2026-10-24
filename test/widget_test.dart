@@ -27,6 +27,8 @@ void main() {
     await tester.tap(find.text('Ingresar'));
     await tester.pumpAndSettle();
     expect(find.text('Hola, Piero'), findsOneWidget);
+    await tester.ensureVisible(find.text('Cerrar sesión'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Cerrar sesión'));
     await tester.pumpAndSettle();
     expect(find.text('Iniciar sesión'), findsOneWidget);
@@ -103,14 +105,25 @@ void main() {
     expect(find.text('Hola, Elena'), findsOneWidget);
   });
 
-  testWidgets('las cinco pantallas caben en móvil de 320 píxeles', (tester) async {
+  testWidgets('muestra las fuentes personalizadas y las imágenes locales', (tester) async {
+    await ingresar(tester);
+    await tester.tap(find.text('Fuentes e imágenes'));
+    await tester.pumpAndSettle();
+    expect(find.text('Texto con fuente Jacquard Regular'), findsOneWidget);
+    expect(find.text('Texto con fuente Roboto Bold'), findsOneWidget);
+    expect(find.text('Imágenes locales'), findsOneWidget);
+    expect(find.byType(Image), findsWidgets);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('las seis pantallas caben en móvil de 320 píxeles', (tester) async {
     tester.view.physicalSize = const Size(320, 640);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await ingresar(tester);
     expect(tester.takeException(), isNull);
-    for (final opcion in ['Listar alumnos', 'Registrar alumno', 'Perfil']) {
+    for (final opcion in ['Listar alumnos', 'Registrar alumno', 'Perfil', 'Fuentes e imágenes']) {
       await tester.tap(find.text(opcion));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
